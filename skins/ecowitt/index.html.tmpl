@@ -1,0 +1,69 @@
+<html>
+<head>
+<link rel="stylesheet" href="mystyle.css">
+<style>
+body {
+  background-color: linen;
+}
+h2 {
+  color: maroon;
+  margin-left: 40px;
+} 
+</style>
+
+</head>
+
+<body>
+
+<h1>$station.location current Weather</h1>
+
+<h2> Outside readings: </h2>
+<h3>
+
+<dl>
+<dd>
+<dl>
+<dd> $current.outTemp </dd>
+<dd> $current.outHumidity humidity </dd>
+</dl>
+</h3>
+</dd>
+</dl>
+<p>
+
+<h2> Inside readings: </h2>
+<h3>
+<dl>
+<dd>
+<dl>
+<dd> $current.inTemp </dd>
+<dd> $current.inHumidity humidity </dd>
+</dl>
+</dd>
+</dl>
+
+</h3>
+
+<p>
+<dl>
+<em>
+<dd> Last measurement:
+  <dl>
+  <dd> $current.dateTime.format(format_string="%c") </dd>
+  </dl>
+</dd>
+</em>
+<p>
+<em>
+<dd>Readings courtesy of EcoWitt sensors:
+  <dl>
+  <dd><a href="https://www.ecowitt.com/shop/goodsDetail/16">GW-1000</a> - wifi gateway</dd>
+  <dd><a href="https://www.ecowitt.com/shop/goodsDetail/52">WH32</a> - outside sensor</dd>
+  </dl>
+</dd>
+</em>
+</dl>
+
+</body>
+
+</html>
