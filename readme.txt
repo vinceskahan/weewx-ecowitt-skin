@@ -21,3 +21,6 @@ So if your weewx HTML_ROOT = /var/www/html/weewx
 then to see the output of this skin you would 
 open http://yourhostname/weewx/ecowitt in a browser.
 
+
+Note - look at index.html.tmpl for an example of how to
+map sensor battery status and display it in the skin.

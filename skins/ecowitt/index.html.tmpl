@@ -1,3 +1,28 @@
+<!--
+
+Minimal EcoWitt skin based on the gw1000 driver
+===============================================
+
+This example also shows battery status for the external
+sensor via mapping the detected sensor's battery status
+to a known parameter in weewx's schema.   Displaying
+the value has some cheeatah-fu below to only show the
+status if there is current data.
+
+For the WH32/WH26 battery=0 is ok, battery=1 is low
+
+     # Options for extension 'GW1000'
+     [GW1000]
+         driver = user.gw1000
+         ip_address = 192.168.2.20
+         port = 45000
+         poll_interval = 20
+
+         [[field_map_extensions]]
+         outTempBatteryStatus = wh26_batt
+
+-->
+
 <html>
 <head>
 <link rel="stylesheet" href="mystyle.css">
@@ -47,6 +72,7 @@ h2 {
 <p>
 <dl>
 <em>
+<!-- this is more probably when weewx generated the html last -->
 <dd> Last measurement:
   <dl>
   <dd> $current.dateTime.format(format_string="%c") </dd>
@@ -58,7 +84,15 @@ h2 {
 <dd>Readings courtesy of EcoWitt sensors:
   <dl>
   <dd><a href="https://www.ecowitt.com/shop/goodsDetail/16">GW-1000</a> - wifi gateway</dd>
-  <dd><a href="https://www.ecowitt.com/shop/goodsDetail/52">WH32</a> - outside sensor</dd>
+  <dd><a href="https://www.ecowitt.com/shop/goodsDetail/52">WH32</a> - outside sensor
+
+   	#if $current.outTempBatteryStatus.has_data and $current.outTempBatteryStatus.format("%s") != "0.0"
+    	(battery LOW)  - $current.outTempBatteryStatus.format("%.1f")
+   	#else
+    	(battery OK)
+   	#end if
+
+  </dd>
   </dl>
 </dd>
 </em>
@@ -67,3 +101,4 @@ h2 {
 </body>
 
 </html>
+
