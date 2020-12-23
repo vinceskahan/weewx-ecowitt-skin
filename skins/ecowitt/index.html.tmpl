@@ -26,48 +26,68 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
 <html>
 <head>
 <link rel="stylesheet" href="mystyle.css">
-<style>
-body {
-  background-color: linen;
-}
-h2 {
-  color: maroon;
-  margin-left: 40px;
-} 
-</style>
-
 </head>
 
 <body>
 
 <h1>$station.location current Weather</h1>
 
+#if $current.outTemp.has_data 
 <h2> Outside readings: </h2>
 <h3>
-
 <dl>
 <dd>
-<dl>
-<dd> $current.outTemp </dd>
-<dd> $current.outHumidity humidity </dd>
-</dl>
+   <dl>
+     <dd> $current.outTemp </dd>
+     <dd> $current.outHumidity humidity </dd>
+   	#if $current.outTempBatteryStatus.has_data and $current.outTempBatteryStatus.format("%s") != "0.0"
+          <dd>(battery LOW) $current.outTempBatteryStatus.format("%.1f")</dd>
+   	#else
+          <dd>(battery OK) </dd>
+   	#end if
+   </dl>
 </h3>
 </dd>
 </dl>
 <p>
+#end if
 
+#if $current.inTemp.has_data 
 <h2> Inside readings: </h2>
 <h3>
 <dl>
 <dd>
+  <dl>
+     <dd>
+     <table>
+     <tr> <td><b>Office  </b></td> <td width=100>$current.inTemp</td> <td>$current.inHumidity humidity</td> </tr>
+
+     #if $current.extraTemp1.has_data 
+     <tr> <td><b>Sensor1 </b></td> <td>$current.extraTemp1</td> <td> $current.extraHumid1 humidity</td> </tr>
+     #end if
+
+     #if $current.extraTemp2.has_data 
+     <tr> <td><b>Sensor2 </b></td> <td>$current.extraTemp2</td> <td> $current.extraHumid2 humidity</td> </tr>
+     #end if
+
+     </table>
+     </dd>
+</dd>
+</dl>
+#end if
+
+#if $current.soilMoist1.has_data 
+<h2> Soil sensors: </h2>
+<h3>
 <dl>
-<dd> $current.inTemp </dd>
-<dd> $current.inHumidity humidity </dd>
+<dd>
+<dl>
+<dd> Soil1 - $current.soilMoist1.format(add_label=False) %</dd>
 </dl>
 </dd>
 </dl>
-
 </h3>
+#end if
 
 <p>
 <dl>
@@ -79,20 +99,15 @@ h2 {
   </dl>
 </dd>
 </em>
+
 <p>
 <em>
 <dd>Readings courtesy of EcoWitt sensors:
   <dl>
   <dd><a href="https://www.ecowitt.com/shop/goodsDetail/16">GW-1000</a> - wifi gateway</dd>
-  <dd><a href="https://www.ecowitt.com/shop/goodsDetail/52">WH32</a> - outside sensor
-
-   	#if $current.outTempBatteryStatus.has_data and $current.outTempBatteryStatus.format("%s") != "0.0"
-    	(battery LOW)  - $current.outTempBatteryStatus.format("%.1f")
-   	#else
-    	(battery OK)
-   	#end if
-
-  </dd>
+  <dd><a href="https://www.ecowitt.com/shop/goodsDetail/52">WH32</a> - outside sensor </dd>
+  <dd><a href="https://www.ecowitt.com/shop/goodsDetail/19">WH31</a> - extra indoor Temp/Hum sensors</dd>
+  <dd><a href="https://www.ecowitt.com/shop/goodsDetail/16">WH51</a> - soil moisture sensor</dd>
   </dl>
 </dd>
 </em>
