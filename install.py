@@ -9,7 +9,7 @@ def loader():
 class MySkinInstaller(ExtensionInstaller):
     def __init__(self):
         super(MySkinInstaller, self).__init__(
-            version="0.2",
+            version="0.3",
             name='ecowitt',
             description='ecowitt minimalist custom skin',
             author="Vince Skahan",
