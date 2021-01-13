@@ -18,13 +18,23 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
          port = 45000
          poll_interval = 20
 
-         [[field_map_extensions]]
+    # when running as a driver, the default mappings automatically
+    # handle inTemp, inHumidity, outTemp, outHumidity
+    # and the extraTemp1-8 and soilMoistN items automagically
+    # but we need to add the battery status mappings
+     [[field_map_extensions]]
          outTempBatteryStatus = wh26_batt
          # extraTemp1-8
          batteryStatus1 = wh31_ch1_batt
          batteryStatus2 = wh31_ch2_batt
-         # soilMost1 = channel autoselects on first use
+         # soilMoist1 = channel autoselects on first use
          batteryStatus8 = wh51_ch1_batt
+
+    # when running as a service presumably the inTemp/inHumidity
+    # items and perhaps a few more would need overriding
+
+    # we use field_map_extensions to supersede a subset of mappings
+    # rather than using field_map to map them all specifically
 
 -->
 
