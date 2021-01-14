@@ -56,7 +56,7 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
      <dd>
      <table>
 
-     <tr> <td><b>Outside </b></td> <td>$current.outTemp</td> <td> $current.extraHumid1 humidity</td>
+     <tr> <td><b>Outside </b></td> <td>$current.outTemp</td> <td> $current.outHumidity humidity</td>
         <td>
        #if $current.batteryStatus1.has_data and $current.outTempBatteryStatus.format("%s") != "0.0"
           (battery LOW) $current.batteryStatus1.format("%.1f")
