@@ -1,3 +1,7 @@
+0.4 2021-0810
+* fix if-then in .tmpl
+* add sensors 3+4
+
 0.3 2021-0109
 * clean up a little
 * show battery status

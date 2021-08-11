@@ -83,29 +83,57 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
      <tr> <td><b>Office  </b></td> <td width=100>$current.inTemp</td> <td>$current.inHumidity humidity</td> </tr>
 
      #if $current.extraTemp1.has_data
-     <tr> <td><b>Sensor1 </b></td>
-    <td>$current.extraTemp1</td> <td> $current.extraHumid1 humidity</td>
+     <tr> <td><b>Sensor1</b></td>
+     <td>$current.extraTemp1</td> <td> $current.extraHumid1 humidity</td>
         <td>
-       #if $current.batteryStatus1.has_data and $current.outTempBatteryStatus.format("%s") != "0.0"
+       #if $current.batteryStatus1.has_data and $current.batteryStatus1.format("%s") != "0.0"
           (battery LOW) $current.batteryStatus1.format("%.1f")
        #else
           (battery OK)
        #end if
         </td>
+     </tr>
      #end if
 
      #if $current.extraTemp2.has_data
-     <tr> <td><b>Sensor2 </b></td>
-    <td>$current.extraTemp2</td> <td> $current.extraHumid2 humidity</td>
+     <tr> <td><b>Sensor2</b></td>
+     <td>$current.extraTemp2</td> <td> $current.extraHumid2 humidity</td>
         <td>
-       #if $current.batteryStatus2.has_data and $current.outTempBatteryStatus.format("%s") != "0.0"
+       #if $current.batteryStatus2.has_data and $current.batteryStatus2.format("%s") != "0.0"
           (battery LOW) $current.batteryStatus2.format("%.1f")
        #else
           (battery OK)
        #end if
         </td>
-     #end if
      </tr>
+     #end if
+
+     #if $current.extraTemp3.has_data
+     <tr> <td><b>Sensor3</b></td>
+     <td>$current.extraTemp3</td> <td> $current.extraHumid3 humidity</td>
+        <td>
+       #if $current.batteryStatus3.has_data and $current.batteryStatus3.format("%s") != "0.0"
+          (battery LOW) $current.batteryStatus3.format("%.1f")
+       #else
+          (battery OK)
+       #end if
+        </td>
+     </tr>
+     #end if
+
+     #if $current.extraTemp4.has_data
+     <tr> <td><b>Sensor4</b></td>
+     <td>$current.extraTemp4</td> <td> $current.extraHumid4 humidity</td>
+        <td>
+       #if $current.batteryStatus4.has_data and $current.batteryStatus4.format("%s") != "0.0"
+          (battery LOW) $current.batteryStatus4.format("%.1f")
+       #else
+          (battery OK)
+       #end if
+        </td>
+     </tr>
+     #end if
+
      </table>
      </dd>
 </dd>
