@@ -1,3 +1,8 @@
+0.5 2022-0815
+* add sensor 5
+* fix installer for sensors field map
+* add which sensor is which in .tmpl
+
 0.4 2021-0810
 * fix if-then in .tmpl
 * add sensors 3+4
