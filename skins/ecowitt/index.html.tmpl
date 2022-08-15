@@ -86,7 +86,7 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
      <tr> <td><b>Office  </b></td> <td width=100>$current.inTemp</td> <td>$current.inHumidity humidity</td> </tr>
 
      #if $current.extraTemp1.has_data
-     <tr> <td><b>Sensor1 (MBR)</b></td>
+     <tr> <td><b>1 MBR</b></td>
      <td>$current.extraTemp1</td> <td> $current.extraHumid1 humidity</td>
         <td>
        #if $current.batteryStatus1.has_data and $current.batteryStatus1.format("%s") != "0.0"
@@ -99,7 +99,7 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
      #end if
 
      #if $current.extraTemp2.has_data
-     <tr> <td><b>Sensor2 (FR)</b></td>
+     <tr> <td><b>2 FR</b></td>
      <td>$current.extraTemp2</td> <td> $current.extraHumid2 humidity</td>
         <td>
        #if $current.batteryStatus2.has_data and $current.batteryStatus2.format("%s") != "0.0"
@@ -112,7 +112,7 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
      #end if
 
      #if $current.extraTemp3.has_data
-     <tr> <td><b>Sensor3 (BR3)</b></td>
+     <tr> <td><b>3 BR3</b></td>
      <td>$current.extraTemp3</td> <td> $current.extraHumid3 humidity</td>
         <td>
        #if $current.batteryStatus3.has_data and $current.batteryStatus3.format("%s") != "0.0"
@@ -125,7 +125,7 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
      #end if
 
      #if $current.extraTemp4.has_data
-     <tr> <td><b>Sensor4 (BR4)</b></td>
+     <tr> <td><b>4 BR4</b></td>
      <td>$current.extraTemp4</td> <td> $current.extraHumid4 humidity</td>
         <td>
        #if $current.batteryStatus4.has_data and $current.batteryStatus4.format("%s") != "0.0"
@@ -138,7 +138,7 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
      #end if
 
      #if $current.extraTemp5.has_data
-     <tr> <td><b>Sensor5 (baseball)</b></td>
+     <tr> <td><b>5 Baseball</b></td>
      <td>$current.extraTemp5</td> <td> $current.extraHumid5 humidity</td>
         <td>
        #if $current.batteryStatus5.has_data and $current.batteryStatus5.format("%s") != "0.0"
