@@ -99,7 +99,7 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
      #end if
 
      #if $current.extraTemp2.has_data
-     <tr> <td><b>2 FR</b></td>
+     <tr> <td><b>2 BR2</b></td>
      <td>$current.extraTemp2</td> <td> $current.extraHumid2 humidity</td>
         <td>
        #if $current.batteryStatus2.has_data and $current.batteryStatus2.format("%s") != "0.0"
@@ -125,7 +125,7 @@ For the WH32/WH26 battery=0 is ok, battery=1 is low
      #end if
 
      #if $current.extraTemp4.has_data
-     <tr> <td><b>4 BR4</b></td>
+     <tr> <td><b>4 FR</b></td>
      <td>$current.extraTemp4</td> <td> $current.extraHumid4 humidity</td>
         <td>
        #if $current.batteryStatus4.has_data and $current.batteryStatus4.format("%s") != "0.0"
